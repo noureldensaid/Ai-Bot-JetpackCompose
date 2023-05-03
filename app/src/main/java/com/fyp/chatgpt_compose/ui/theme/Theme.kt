@@ -7,9 +7,11 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
+@SuppressLint("ConflictingOnColor")
 private val DarkColorPalette = darkColors(
-    primary = BackGroundMessageHuman,
+    primary = Purple80,
     secondary = Purple80,
     onSecondary = Color.DarkGray,
     background = BackGroundColor,
@@ -45,7 +47,16 @@ fun ChatGptComposeTheme(
     } else {
         LightColorPalette
     }
-
+    val systemUiController = rememberSystemUiController()
+    if (darkTheme) {
+        systemUiController.setSystemBarsColor(
+            color = BackGroundColor,
+        )
+    } else {
+        systemUiController.setSystemBarsColor(
+            color = BackGroundMessageHuman
+        )
+    }
     MaterialTheme(
         colors = colors,
         typography = Typography,

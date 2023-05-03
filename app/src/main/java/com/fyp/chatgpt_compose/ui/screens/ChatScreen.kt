@@ -1,6 +1,5 @@
 package com.fyp.chatgpt_compose.ui.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,20 +14,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.fyp.chatgpt_compose.models.Chat
+import com.fyp.chatgpt_compose.ui.theme.Lato
 
 @Composable
-fun ChatScreen() {
+fun ChatScreen(navController: NavHostController) {
     val viewModel = hiltViewModel<ChatScreenViewModel>()
-    // Create a state variable to store the current message
-    // Create a list of messages
-
     var userInput by remember { mutableStateOf("") }
     var messages by remember { mutableStateOf(listOf<Chat>()) }
 
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
+    Column(modifier = Modifier.fillMaxSize()) {
         LazyColumn(
             modifier = Modifier.weight(1f),
             reverseLayout = true
@@ -37,16 +33,15 @@ fun ChatScreen() {
                 MessageBubble(message)
             }
         }
-
-        Row(
-            modifier = Modifier.background(Color.White),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             TextField(
                 value = userInput,
                 onValueChange = { userInput = it },
                 modifier = Modifier.weight(1f),
-                textStyle = MaterialTheme.typography.body1.copy(fontSize = 16.sp),
+                textStyle = MaterialTheme.typography.body1.copy(
+                    fontSize = 16.sp,
+                    fontFamily = Lato,
+                ),
                 colors = TextFieldDefaults.textFieldColors(
                     backgroundColor = MaterialTheme.colors.background,
                     focusedIndicatorColor = Color.Transparent,
@@ -56,7 +51,8 @@ fun ChatScreen() {
                 placeholder = {
                     Text(
                         text = "Type a message...",
-                        color = MaterialTheme.colors.primary
+                        color = MaterialTheme.colors.primary,
+                        fontFamily = Lato,
                     )
                 },
                 trailingIcon = {
@@ -66,13 +62,13 @@ fun ChatScreen() {
                             userInput = ""
                             messages += Chat(message = input, isUser = true)
                             viewModel.getResponse(input) {
-                                 messages += Chat(message = it, isUser = false)
+                                messages += Chat(message = it, isUser = false)
                             }
                         }
                     }) {
                         Icon(
                             imageVector = Icons.Filled.Send,
-                            tint = MaterialTheme.colors.onBackground,
+                            tint = MaterialTheme.colors.primary,
                             contentDescription = "Send"
                         )
                     }
@@ -125,7 +121,12 @@ fun MessageBubble(message: Chat) {
                 text = message.message,
                 modifier = Modifier.padding(8.dp),
                 style = MaterialTheme.typography.body1.copy(
-                    fontSize = 16.sp
+                    fontSize = 16.sp,
+                    fontFamily = Lato,
+                    letterSpacing = 1.sp,
+                    lineHeight = 24.sp
+
+
                 )
             )
         }

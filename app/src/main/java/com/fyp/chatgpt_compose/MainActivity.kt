@@ -7,12 +7,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.fyp.chatgpt_compose.ui.screens.ChatScreen
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.fyp.chatgpt_compose.navigation.MainNavigation
 import com.fyp.chatgpt_compose.ui.theme.ChatGptComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -21,7 +24,8 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    ChatScreen()
+                    navController = rememberNavController()
+                    MainNavigation(navController)
                 }
             }
         }
