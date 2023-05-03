@@ -1,7 +1,7 @@
 <h1 align="center">Ai Chat-Bot </h1>
 
 An Android application implemented using the MVVM pattern, Coroutines Flow, StateFlow, Retrofit, Dagger-Hilt, ViewModel, Compose Navigation, Coil and some other libraries.
-The app fetches data from the [Poke API](https://pokeapi.co/) to provide pokemon informations.
+The app allow user to chat with an Ai-chat bot and ask him various questions , you can customize your own ai model at [Brain ShopI](https://brainshop.ai) and train it on different data sets
 
 ## Built With: 
 * [Kotlin](https://kotlinlang.org/) First class and official programming language for Android development.
@@ -14,9 +14,6 @@ The app fetches data from the [Poke API](https://pokeapi.co/) to provide pokemon
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) to store and manage UI-related data in a lifecycle conscious way.
 * [Navigation Component](https://developer.android.com/guide/navigation) to handle all navigations and also passing of data between destinations.
 * [Material Design](https://material.io/develop/android/docs/getting-started/) Modular and customizable Material Design UI components for Android.
-* [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) provides an alternative syntax to the traditional Groovy DSL with an enhanced editing experience in supported IDEs, with superior content assist, refactoring, documentation, and more.
-* [Moshi](https://github.com/square/moshi) A modern JSON library for Kotlin and Java.
-* [View Binding](https://developer.android.com/topic/libraries/view-binding) Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
-* [Coil](https://github.com/coil-kt/coil) An image loading library for Android backed by Kotlin Coroutines.
-
+ 
+ 
  <img src="https://user-images.githubusercontent.com/93207605/236000237-9ab106ba-7a3a-4003-8a60-8618739bcab9.gif" hieght="800" width="800">
