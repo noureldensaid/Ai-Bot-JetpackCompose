@@ -1,7 +1,7 @@
 <h1 align="center">Ai Chat-Bot </h1>
 
 An Android application implemented using the MVVM pattern, Coroutines Flow, StateFlow, Retrofit, Dagger-Hilt, ViewModel, Compose Navigation, Coil and some other libraries.
-The app allow user to chat with an Ai-chat bot and ask him various questions , you can customize your own ai model at [Brain ShopI](https://brainshop.ai) and train it on different data sets
+The app allow user to chat with an Ai-chat bot and ask him various questions , you can customize your own ai model at [Brain Shop](https://brainshop.ai) and train it on different data sets
 
 ## Built With: 
 * [Kotlin](https://kotlinlang.org/) First class and official programming language for Android development.
